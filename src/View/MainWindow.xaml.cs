@@ -24,7 +24,7 @@ namespace View
         {
             InitializeComponent();
 
-            var items = new List<string> { "a", "b", "c", "d", "e" };
+            var items = new List<string> { "a","b","c","d","e"};
             boardView.ItemsSource = items;
         }
     }
