@@ -10,6 +10,24 @@
         <ItemsControl x:Name="boardView">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
+                    <ItemsControl ItemsSource="{Binding .}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Content="{Binding .}" Height="32" Width="32"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <!--<ItemsControl x:Name="boardView">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
                     <Button Content="{Binding .}"/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
@@ -18,6 +36,6 @@
                     <StackPanel Orientation="Horizontal"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
-        </ItemsControl>
+        </ItemsControl>-->
     </Grid>
 </Window>
