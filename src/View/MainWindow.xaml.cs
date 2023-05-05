@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Model.Data;
+using Model.MineSweeper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,12 +26,46 @@ namespace View
         {
             InitializeComponent();
 
-            var row1 = new List<string> { "a", "b", "c", "d", "e" };
-            var row2 = new List<string> { "e", "f", "g", "h", "i" };
-            var row3 = new List<string> { "j", "k", "l", "m", "n" };
-            var grid = new List<List<string>> { row1, row2, row3 };
+            var game = IGame.Parse(new List<string>
+            {
+                "..*..",
+                ".*...",
+                "*...*",
+                ".....",
+                "...*."
+            });
 
-            this.boardView.ItemsSource = grid;
+            var board = Rows(game.Board);
+            this.boardView.ItemsSource = board;
+        }
+
+        IEnumerable<Square> Row(IGameBoard board, int row)
+        {
+            var squares = new List<Square>();
+            var width = board.Width;
+
+            for(int i=0; i<width; i++)
+            {
+                var pos = new Vector2D(row, i);
+                var square = board[pos];
+                squares.Add(square);
+            }
+
+            return squares;
+        }
+
+        IEnumerable<IEnumerable<Square>> Rows(IGameBoard board)
+        {
+            var rows = new List<IEnumerable<Square>>();
+            var height = board.Height;
+
+            for(int i=0; i<height; i++)
+            {
+                var row = Row(board, i);
+                rows.Add(row);
+            }
+
+            return rows;
         }
     }
 }
