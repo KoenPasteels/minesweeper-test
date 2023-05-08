@@ -9,7 +9,7 @@ namespace ViewModel
     public class GameBoardViewModel
     {
         private readonly IGameBoard gameBoard;
-        public IEnumerable<IEnumerable<Square>> Rows { get; }
+        public IEnumerable<RowViewModel> Rows { get; }
 
         public GameBoardViewModel(IGameBoard board)
         {
@@ -32,15 +32,16 @@ namespace ViewModel
             return squares;
         }
 
-        IEnumerable<IEnumerable<Square>> GetRows(IGameBoard board)
+        IEnumerable<RowViewModel> GetRows(IGameBoard board)
         {
-            var rows = new List<IEnumerable<Square>>();
+            var rows = new List<RowViewModel>();
             var height = board.Height;
 
             for (int i = 0; i < height; i++)
             {
                 var row = GetRow(board, i);
-                rows.Add(row);
+                var rowViewModel = new RowViewModel(row);
+                rows.Add(rowViewModel);
             }
 
             return rows;
