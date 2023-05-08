@@ -45,7 +45,7 @@ namespace View
             game = game.UncoverSquare(mine);
 
             var board = Rows(game.Board);
-            this.boardView.ItemsSource = board;
+            this.DataContext = board;
         }
 
         IEnumerable<Square> Row(IGameBoard board, int row)
