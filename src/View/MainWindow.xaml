@@ -13,6 +13,11 @@
                                           Covered="Transparent"
                                           Mine="Black"
                                           Flagged="Orange"/>
+        <converters:SquareStatusConverter x:Key="squareStatusVisibility"
+                                          Uncovered="Visible"
+                                          Covered="Collapsed"
+                                          Mine="Collapsed"
+                                          Flagged="Collapsed"/>
     </Window.Resources>
     <Grid>
         <ItemsControl x:Name="boardView">
@@ -28,7 +33,10 @@
                             <DataTemplate>
                                 <Button Height="32" Width="32">
                                     <Button.Content>
-                                        <Ellipse Height="20" Width="20" Fill="{Binding Status, Converter={StaticResource squareStatusToEllipseFill}}"/>
+                                        <Grid>
+                                            <Ellipse Height="20" Width="20" Fill="{Binding Status, Converter={StaticResource squareStatusToEllipseFill}}"/>
+                                            <TextBlock Text="{Binding NeighboringMineCount}" Visibility="{Binding Status, Converter={StaticResource squareStatusVisibility}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        </Grid>
                                     </Button.Content>
                                 </Button>
                             </DataTemplate>

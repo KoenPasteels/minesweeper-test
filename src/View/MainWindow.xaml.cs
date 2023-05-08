@@ -41,6 +41,7 @@ namespace View
 
             game = game.UncoverSquare(uncover);
             game = game.ToggleFlag(flag);
+            game = game.UncoverSquare(new Vector2D(1, 2));
             game = game.UncoverSquare(mine);
 
             var board = Rows(game.Board);
