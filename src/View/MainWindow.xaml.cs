@@ -35,6 +35,14 @@ namespace View
                 "...*."
             });
 
+            var uncover = new Vector2D(0, 0);
+            var flag = new Vector2D(0, 2);
+            var mine = new Vector2D(1, 1);
+
+            game = game.UncoverSquare(uncover);
+            game = game.ToggleFlag(flag);
+            game = game.UncoverSquare(mine);
+
             var board = Rows(game.Board);
             this.boardView.ItemsSource = board;
         }
