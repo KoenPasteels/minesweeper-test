@@ -18,7 +18,11 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Button Content="{Binding .}" Height="32" Width="32"/>
+                                <Button Height="32" Width="32">
+                                    <Button.Content>
+                                        <Ellipse Height="20" Width="20" Fill="Black"/>
+                                    </Button.Content>
+                                </Button>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
