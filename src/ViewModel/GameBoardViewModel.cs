@@ -17,16 +17,17 @@ namespace ViewModel
             this.Rows = GetRows(gameBoard);
         }
 
-        IEnumerable<Square> GetRow(IGameBoard board, int row)
+        IEnumerable<SquareViewModel> GetRow(IGameBoard board, int row)
         {
-            var squares = new List<Square>();
+            var squares = new List<SquareViewModel>();
             var width = board.Width;
 
             for (int i = 0; i < width; i++)
             {
                 var pos = new Vector2D(row, i);
                 var square = board[pos];
-                squares.Add(square);
+                var squareViewModel = new SquareViewModel(square);
+                squares.Add(squareViewModel);
             }
 
             return squares;

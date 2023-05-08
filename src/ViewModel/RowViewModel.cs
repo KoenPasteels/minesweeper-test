@@ -7,9 +7,9 @@ namespace ViewModel
 {
     public class RowViewModel
     {
-        public IEnumerable<Square> Squares { get; }
+        public IEnumerable<SquareViewModel> Squares { get; }
 
-        public RowViewModel(IEnumerable<Square> row)
+        public RowViewModel(IEnumerable<SquareViewModel> row)
         {
             this.Squares = row;
         }
