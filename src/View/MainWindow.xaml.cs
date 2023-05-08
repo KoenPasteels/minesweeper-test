@@ -1,5 +1,6 @@
 ﻿using Model.Data;
 using Model.MineSweeper;
+using ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,37 +45,10 @@ namespace View
             game = game.UncoverSquare(new Vector2D(1, 2));
             game = game.UncoverSquare(mine);
 
-            var board = Rows(game.Board);
-            this.DataContext = board;
+            var gameViewModel = new GameViewModel(game);
+            this.DataContext = gameViewModel;
         }
 
-        IEnumerable<Square> Row(IGameBoard board, int row)
-        {
-            var squares = new List<Square>();
-            var width = board.Width;
-
-            for(int i=0; i<width; i++)
-            {
-                var pos = new Vector2D(row, i);
-                var square = board[pos];
-                squares.Add(square);
-            }
-
-            return squares;
-        }
-
-        IEnumerable<IEnumerable<Square>> Rows(IGameBoard board)
-        {
-            var rows = new List<IEnumerable<Square>>();
-            var height = board.Height;
-
-            for(int i=0; i<height; i++)
-            {
-                var row = Row(board, i);
-                rows.Add(row);
-            }
-
-            return rows;
-        }
+        
     }
 }

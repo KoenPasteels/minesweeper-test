@@ -20,7 +20,7 @@
                                           Flagged="Collapsed"/>
     </Window.Resources>
     <Grid>
-        <ItemsControl ItemsSource="{Binding .}">
+        <ItemsControl ItemsSource="{Binding Rows}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <ItemsControl ItemsSource="{Binding .}">
