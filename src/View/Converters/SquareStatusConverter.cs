@@ -10,19 +10,24 @@ namespace View.Converters
 {
     class SquareStatusConverter : IValueConverter
     {
+        public object Uncovered { get; set; }
+        public object Covered { get; set; }
+        public object Mine { get; set; }
+        public object Flagged { get; set; }
+
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var squareStatus = (SquareStatus)value;
             switch (squareStatus)
             {
                 case SquareStatus.Uncovered:
-                    return Brushes.Red;
+                    return Uncovered;
                 case SquareStatus.Flagged:
-                    return Brushes.Orange;
+                    return Flagged;
                 case SquareStatus.Covered:
-                    return Brushes.Transparent;
+                    return Covered;
                 case SquareStatus.Mine:
-                    return Brushes.Black;
+                    return Mine;
                 default:
                     throw new InvalidCastException();
             }
