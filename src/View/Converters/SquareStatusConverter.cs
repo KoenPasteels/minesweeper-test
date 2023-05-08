@@ -31,8 +31,6 @@ namespace View.Converters
                 default:
                     throw new InvalidCastException();
             }
-
-            return Brushes.Red;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
