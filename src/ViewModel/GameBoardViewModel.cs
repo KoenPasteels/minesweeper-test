@@ -23,11 +23,9 @@ namespace ViewModel
             for (int i = 0; i < width; i++)
             {
                 var pos = new Vector2D(row, i);
-                var square = game.Board[pos];
                 var squareViewModel = new SquareViewModel(game, pos);
                 squares.Add(squareViewModel);
             }
-
             return squares;
         }
 
