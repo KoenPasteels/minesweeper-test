@@ -34,8 +34,8 @@
                                 <Button Height="32" Width="32" Command="{Binding Uncover}">
                                     <Button.Content>
                                         <Grid>
-                                            <Ellipse Height="20" Width="20" Fill="{Binding Square.Status, Converter={StaticResource squareStatusToEllipseFill}}"/>
-                                            <TextBlock Text="{Binding Square.NeighboringMineCount}" Visibility="{Binding Square.Status, Converter={StaticResource squareStatusVisibility}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            <Ellipse Height="20" Width="20" Fill="{Binding Square.Value.Status, Converter={StaticResource squareStatusToEllipseFill}}"/>
+                                            <TextBlock Text="{Binding Square.Value.NeighboringMineCount}" Visibility="{Binding Square.Value.Status, Converter={StaticResource squareStatusVisibility}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                         </Grid>
                                     </Button.Content>
                                 </Button>

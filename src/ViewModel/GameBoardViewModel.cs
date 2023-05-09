@@ -1,4 +1,5 @@
-﻿using Model.Data;
+﻿using Cells;
+using Model.Data;
 using Model.MineSweeper;
 using System;
 using System.Collections.Generic;
@@ -10,17 +11,17 @@ namespace ViewModel
     {
         public IEnumerable<RowViewModel> Rows { get; }
 
-        public GameBoardViewModel(IGame game)
+        public GameBoardViewModel(ICell<IGame> game)
         {
             this.Rows = GetRows(game);
         }
 
-        IEnumerable<SquareViewModel> GetRow(IGame game, int row)
+        IEnumerable<SquareViewModel> GetRow(ICell<IGame> game, int row)
         {
             var squares = new List<SquareViewModel>();
-            var width = game.Board.Width;
+            var width = game.Derive(g => g.Board.Width);
 
-            for (int i = 0; i < width; i++)
+            for (int i = 0; i < width.Value; i++)
             {
                 var pos = new Vector2D(row, i);
                 var squareViewModel = new SquareViewModel(game, pos);
@@ -29,12 +30,12 @@ namespace ViewModel
             return squares;
         }
 
-        IEnumerable<RowViewModel> GetRows(IGame game)
+        IEnumerable<RowViewModel> GetRows(ICell<IGame> game)
         {
             var rows = new List<RowViewModel>();
-            var height = game.Board.Height;
+            var height = game.Derive(g => g.Board.Height);
 
-            for (int i = 0; i < height; i++)
+            for (int i = 0; i < height.Value; i++)
             {
                 var row = GetRow(game, i);
                 var rowViewModel = new RowViewModel(row, game, i);

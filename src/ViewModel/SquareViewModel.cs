@@ -1,4 +1,5 @@
-﻿using Model.Data;
+﻿using Cells;
+using Model.Data;
 using Model.MineSweeper;
 using System;
 using System.Collections.Generic;
@@ -9,12 +10,12 @@ namespace ViewModel
 {
     public class SquareViewModel
     {
-        public Square Square { get; }
+        public ICell<Square> Square{ get; }
         public ICommand Uncover { get; }
 
-        public SquareViewModel(IGame game, Vector2D position)
+        public SquareViewModel(ICell<IGame> game, Vector2D position)
         {
-            this.Square = game.Board[position];
+            this.Square = game.Derive(g => g.Board[position]);
             this.Uncover = new UncoverSquareCommand(game, position);
         }
     }
