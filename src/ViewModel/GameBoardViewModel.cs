@@ -12,7 +12,6 @@ namespace ViewModel
 
         public GameBoardViewModel(IGame game)
         {
-            this.gameBoard = game.Board;
             this.Rows = GetRows(game);
         }
 
