@@ -22,6 +22,10 @@ namespace ViewModel
 
         public bool CanExecute(object parameter)
         {
+            if(Game.Value.Status != GameStatus.InProgress || Game.Value.Board[Position].Status == SquareStatus.Uncovered)
+            {
+                return false;
+            }
             return true;
         }
 
