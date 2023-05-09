@@ -31,7 +31,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Button Height="32" Width="32">
+                                <Button Height="32" Width="32" Command="{Binding Uncover}">
                                     <Button.Content>
                                         <Grid>
                                             <Ellipse Height="20" Width="20" Fill="{Binding Square.Status, Converter={StaticResource squareStatusToEllipseFill}}"/>
