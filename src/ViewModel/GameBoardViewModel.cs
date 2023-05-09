@@ -16,6 +16,7 @@ namespace ViewModel
             this.Rows = GetRows(game);
         }
 
+        //Does this method belong here?
         IEnumerable<SquareViewModel> GetRow(ICell<IGame> game, int row)
         {
             var squares = new List<SquareViewModel>();
