@@ -8,7 +8,6 @@ namespace ViewModel
 {
     public class GameBoardViewModel
     {
-        private readonly IGameBoard gameBoard;
         public IEnumerable<RowViewModel> Rows { get; }
 
         public GameBoardViewModel(IGame game)
