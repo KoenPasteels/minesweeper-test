@@ -36,15 +36,6 @@ namespace View
                 "...*."
             });
 
-            var uncover = new Vector2D(0, 0);
-            var flag = new Vector2D(0, 2);
-            var mine = new Vector2D(1, 1);
-
-            game = game.UncoverSquare(uncover);
-            game = game.ToggleFlag(flag);
-            game = game.UncoverSquare(new Vector2D(1, 2));
-            game = game.UncoverSquare(mine);
-
             var gameViewModel = new GameViewModel(game);
             this.DataContext = gameViewModel;
         }
