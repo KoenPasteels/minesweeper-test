@@ -11,37 +11,37 @@ namespace ViewModel
         private readonly IGameBoard gameBoard;
         public IEnumerable<RowViewModel> Rows { get; }
 
-        public GameBoardViewModel(IGameBoard board)
+        public GameBoardViewModel(IGame game)
         {
-            this.gameBoard = board;
-            this.Rows = GetRows(gameBoard);
+            this.gameBoard = game.Board;
+            this.Rows = GetRows(game);
         }
 
-        IEnumerable<SquareViewModel> GetRow(IGameBoard board, int row)
+        IEnumerable<SquareViewModel> GetRow(IGame game, int row)
         {
             var squares = new List<SquareViewModel>();
-            var width = board.Width;
+            var width = game.Board.Width;
 
             for (int i = 0; i < width; i++)
             {
                 var pos = new Vector2D(row, i);
-                var square = board[pos];
-                var squareViewModel = new SquareViewModel(square);
+                var square = game.Board[pos];
+                var squareViewModel = new SquareViewModel(square, game);
                 squares.Add(squareViewModel);
             }
 
             return squares;
         }
 
-        IEnumerable<RowViewModel> GetRows(IGameBoard board)
+        IEnumerable<RowViewModel> GetRows(IGame game)
         {
             var rows = new List<RowViewModel>();
-            var height = board.Height;
+            var height = game.Board.Height;
 
             for (int i = 0; i < height; i++)
             {
-                var row = GetRow(board, i);
-                var rowViewModel = new RowViewModel(row);
+                var row = GetRow(game, i);
+                var rowViewModel = new RowViewModel(row, game);
                 rows.Add(rowViewModel);
             }
 

@@ -9,7 +9,7 @@ namespace ViewModel
     {
         public IEnumerable<SquareViewModel> Squares { get; }
 
-        public RowViewModel(IEnumerable<SquareViewModel> row)
+        public RowViewModel(IEnumerable<SquareViewModel> row, IGame game)
         {
             this.Squares = row;
         }

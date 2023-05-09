@@ -11,10 +11,10 @@ namespace ViewModel
         public Square Square { get; }
         public ICommand Uncover { get; }
 
-        public SquareViewModel(Square square)
+        public SquareViewModel(Square square, IGame game)
         {
             this.Square = square;
-            this.Uncover = new UncoverSquareCommand();
+            this.Uncover = new UncoverSquareCommand(game);
         }
     }
 }

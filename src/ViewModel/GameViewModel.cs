@@ -14,7 +14,7 @@ namespace ViewModel
         public GameViewModel(IGame igame)
         {
             this.game = igame;
-            this.Board = new GameBoardViewModel(game.Board);
+            this.Board = new GameBoardViewModel(game);
         }     
     }
 }
