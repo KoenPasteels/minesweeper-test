@@ -27,7 +27,8 @@ namespace View
         {
             InitializeComponent();
 
-            var game = IGame.Parse(new List<string>
+            this.DataContext = new MainViewModel();
+            /*var game = IGame.Parse(new List<string>
             {
                 "..*..",
                 ".*...",
@@ -37,7 +38,7 @@ namespace View
             });
 
             var gameViewModel = new GameViewModel(game);
-            this.DataContext = gameViewModel;
+            this.DataContext = gameViewModel;*/
         }
 
         
