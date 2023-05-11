@@ -8,7 +8,7 @@
         xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"
         xmlns:screens="clr-namespace:View.Screens"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Minesweeper" Height="450" Width="800">
     <ContentControl Content="{Binding CurrentScreen.Value}">
         <ContentControl.Resources>
             <DataTemplate DataType="{x:Type vm:StartScreenViewModel}">
