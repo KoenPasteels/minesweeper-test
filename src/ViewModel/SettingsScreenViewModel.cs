@@ -1,4 +1,5 @@
 ﻿using Cells;
+using Model.MineSweeper;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,10 +13,15 @@ namespace ViewModel
         {
             SwitchToStartScreen = new ActionCommand(() => CurrentScreen.Value = new StartScreenViewModel(this.CurrentScreen));
             SwitchToPlayScreen = new ActionCommand(() => CurrentScreen.Value = new PlayScreenViewModel(this.CurrentScreen));
+            MinimumSlider = IGame.MinimumBoardSize;
+            MaximumSlider = IGame.MaximumBoardSize;
         }
 
         public ICommand SwitchToStartScreen { get; }
 
         public ICommand SwitchToPlayScreen { get; }
+
+        public int MinimumSlider { get; }
+        public int MaximumSlider { get; }
     }
 }
