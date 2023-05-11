@@ -28,6 +28,17 @@ namespace View
             InitializeComponent();
 
             this.DataContext = new MainViewModel();
+            /*var game = IGame.Parse(new List<string>
+            {
+                "..*..",
+                ".*...",
+                "*...*",
+                ".....",
+                "...*."
+            });
+
+            var gameViewModel = new GameViewModel(game);
+            this.DataContext = gameViewModel;*/
         }
 
         
