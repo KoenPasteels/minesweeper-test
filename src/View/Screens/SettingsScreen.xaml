@@ -21,8 +21,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
         </Grid>
-        <TextBlock Grid.Row="1" Text="Board Size" HorizontalAlignment="Center" Margin="0,32,0,98"/>
-        <Slider Grid.Row="1" Width="300" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Text="Board Size" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Slider Grid.Row="1" Width="300" VerticalAlignment="Top" Margin="250,37,250,0"/>
+        <CheckBox Grid.Row="1" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Bottom">Flooding</CheckBox>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
