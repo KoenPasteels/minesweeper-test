@@ -8,7 +8,7 @@ namespace ViewModel
 {
     public class PlayScreenViewModel : ScreenViewModel
     {
-        public PlayScreenViewModel(ICell<ScreenViewModel> currentScreen) : base(currentScreen)
+        public PlayScreenViewModel(ICell<ScreenViewModel> currentScreen, int boardsize, double mineprobability, bool flooding) : base(currentScreen)
         {
             SwitchToStartScreen = new ActionCommand(() => CurrentScreen.Value = new StartScreenViewModel(this.CurrentScreen));
 
@@ -16,7 +16,6 @@ namespace ViewModel
         }
 
         public ICommand SwitchToStartScreen { get; }
-
         public ICommand SwitchToSettingsScreen { get; }
     }
 }
