@@ -9,10 +9,6 @@
         Title="Minesweeper" Height="450" Width="800">
     <ContentControl Content="{Binding CurrentScreen.Value}">
         <ContentControl.Resources>
-            <DataTemplate DataType="{x:Type vm:StartScreenViewModel}">
-                <screens:StartScreen />
-            </DataTemplate>
-
             <DataTemplate DataType="{x:Type vm:PlayScreenViewModel}">
                 <screens:PlayScreen />
             </DataTemplate>
