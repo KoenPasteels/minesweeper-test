@@ -11,22 +11,18 @@ namespace ViewModel
     {
         public SettingsScreenViewModel(ICell<ScreenViewModel> currentScreen) : base(currentScreen)
         {
-            SwitchToStartScreen = new ActionCommand(() => CurrentScreen.Value = new StartScreenViewModel(this.CurrentScreen));
             //SwitchToPlayScreen = new ActionCommand(() => CurrentScreen.Value = new PlayScreenViewModel(this.CurrentScreen, boardsize, mineprobability, flooding));
             
-            this.MinimumSlider = IGame.MinimumBoardSize;
-            this.MaximumSlider = IGame.MaximumBoardSize;
-            //this.Flooding = ;
+            this.MinimumBoardsize = IGame.MinimumBoardSize;
+            this.MaximumBoardsize = IGame.MaximumBoardSize;
             //this.MineProbability = ;
         }
 
-        public ICommand SwitchToStartScreen { get; }
-
         public ICommand SwitchToPlayScreen { get; }
 
-        public int MinimumSlider { get; }
-        public int MaximumSlider { get; }
-        public bool Flooding { get; }
-        public int MineProbability { get; }
+        public int MinimumBoardsize { get; }
+        public int MaximumBoardsize { get; }
+        public bool Flooding { get; set; }
+        //public int MineProbability { get; }
     }
 }

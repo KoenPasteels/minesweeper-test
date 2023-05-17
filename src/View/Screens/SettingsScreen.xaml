@@ -29,7 +29,6 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Start" Command="{Binding SwitchToStartScreen}"/>
             <Button Grid.Column="1" Content="Play" Command="{Binding SwitchToPlayScreen}"/>
         </Grid>
     </Grid>
