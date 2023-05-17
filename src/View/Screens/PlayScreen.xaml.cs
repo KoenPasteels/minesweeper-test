@@ -24,14 +24,7 @@ namespace View.Screens
         {
             InitializeComponent();
 
-            var game = IGame.Parse(new List<string>
-            {
-                "..*..",
-                ".*...",
-                "*...*",
-                ".....",
-                "...*."
-            });
+            var game = IGame.CreateRandom(5, 0.2, true);
 
             var gameViewModel = new GameViewModel(game);
             this.DataContext = gameViewModel;
