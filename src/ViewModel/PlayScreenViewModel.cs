@@ -1,4 +1,5 @@
 ﻿using Cells;
+using Model.MineSweeper;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,16 +7,20 @@ using System.Windows.Input;
 
 namespace ViewModel
 {
-    public class PlayScreenViewModel : ScreenViewModel
+    public class PlayScreenViewModel
     {
-        public PlayScreenViewModel(ICell<ScreenViewModel> currentScreen, int boardsize, double mineprobability, bool flooding) : base(currentScreen)
+        public PlayScreenViewModel()
         {
-            SwitchToStartScreen = new ActionCommand(() => CurrentScreen.Value = new StartScreenViewModel(this.CurrentScreen));
+            // Create empty cell
+            CurrentScreen = Cell.Create<ScreenViewModel>(null);
 
-            SwitchToSettingsScreen = new ActionCommand(() => CurrentScreen.Value = new SettingsScreenViewModel(this.CurrentScreen));
+            // Create start screen
+            var firstScreen = new SettingsScreenViewModel(CurrentScreen);
+
+            // Put first screen in CurrentScreen cell
+            CurrentScreen.Value = firstScreen;
         }
-
-        public ICommand SwitchToStartScreen { get; }
-        public ICommand SwitchToSettingsScreen { get; }
+        public ICell<ScreenViewModel> CurrentScreen { get; }
+        //public ICommand SwitchToSettingsScreen { get; }
     }
 }
