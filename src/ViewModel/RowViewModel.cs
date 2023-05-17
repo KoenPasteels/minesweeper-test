@@ -1,4 +1,5 @@
 ﻿using Cells;
+using Model.Data;
 using Model.MineSweeper;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,18 @@ namespace ViewModel
     {
         public IEnumerable<SquareViewModel> Squares { get; }
 
-        public RowViewModel(IEnumerable<SquareViewModel> row, ICell<IGame> game, int rowIndex) //redundant parameter row, how to access from 2D array?
+        public RowViewModel(ICell<IGame> game, int rowIndex)
         {
-            this.Squares = row;
+            var squares = new List<SquareViewModel>();
+            ICell<IGameBoard> board = game.Derive(g => g.Board);
+            ICell<int> width = board.Derive(g => g.Width);
+            for (int i = 0; i < width.Value; i++)
+            {
+                var position = new Vector2D(i, rowIndex);
+                squares.Add(new SquareViewModel(game, position));
+            }
+
+            this.Squares = squares;
         }
     }
 }
