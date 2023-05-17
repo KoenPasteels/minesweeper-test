@@ -23,11 +23,6 @@ namespace View.Screens
         public PlayScreen()
         {
             InitializeComponent();
-
-            var game = IGame.CreateRandom(5, 0.2, true);
-
-            var gameViewModel = new GameViewModel(game);
-            this.DataContext = gameViewModel;
         }
     }
 }

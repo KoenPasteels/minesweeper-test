@@ -19,7 +19,7 @@
                                           Flagged="Collapsed"/>
     </UserControl.Resources>
     <Grid>
-        <ItemsControl ItemsSource="{Binding Board.Rows}">
+        <ItemsControl ItemsSource="{Binding Board.Value.Rows}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <ItemsControl ItemsSource="{Binding Squares}">
