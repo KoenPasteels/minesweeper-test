@@ -27,7 +27,7 @@ namespace View
         {
             InitializeComponent();
 
-            this.DataContext = new MainViewModel();
+            this.DataContext = new PlayScreenViewModel();
         }
     }
 }
