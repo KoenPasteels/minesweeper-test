@@ -31,7 +31,6 @@ namespace ViewModel
 
         public void Execute(object parameter)
         {
-            Debug.WriteLine(Position.ToString());
             Game.Value = Game.Value.UncoverSquare(Position);
         }
 
