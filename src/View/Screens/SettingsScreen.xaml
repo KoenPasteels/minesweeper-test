@@ -9,27 +9,28 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50px"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-        </Grid>
-        <TextBlock Grid.Row="1" Text="Board Size" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <Slider Grid.Row="1" VerticalAlignment="Top" Margin="250,37,250,0" Minimum="{Binding MinimumBoardsize}" Maximum="{Binding MaximumBoardsize}"/>
-        <CheckBox Grid.Row="1" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Bottom">Flooding</CheckBox>
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" Content="Play" Command="{Binding SwitchToPlayScreen}"/>
-        </Grid>
+
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Pick a default board" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="(with flooding)" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <Button Grid.Row="1" Grid.Column="0" Content="5x5" Command="{Binding Start5}"/>
+        <Button Grid.Row="1" Grid.Column="1" Content="10x10" Command="{Binding Start10}"/>
+        <Button Grid.Row="1" Grid.Column="2" Content="20x20" Command="{Binding Start20}"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="Custom game" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding ElementName=slider, Path=Value}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,39,0,0"/>
+        <Slider Grid.Row="2" Grid.Column="1" Name="slider" TickFrequency="1" TickPlacement="TopLeft" IsSnapToTickEnabled="True" VerticalAlignment="Center" Value="{Binding BoardSize.Value}" Minimum="{Binding MinimumBoardsize}" Maximum="{Binding MaximumBoardsize}"/>
+        <CheckBox Grid.Row="2" Grid.Column="1" IsChecked="{Binding Flooding}" HorizontalAlignment="Center" VerticalAlignment="Bottom">Flooding</CheckBox>
+
+        <Button Grid.Row="3" Grid.Column="1" Content="Start new game" Command="{Binding SwitchToPlayScreen}"/>
     </Grid>
 </UserControl>
