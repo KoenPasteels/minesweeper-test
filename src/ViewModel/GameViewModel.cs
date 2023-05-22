@@ -20,7 +20,7 @@ namespace ViewModel
             this.Board = game.Derive(g => new GameBoardViewModel(game));
             var boardSize = Board.Value.Height;
 
-            SwitchToSettingsScreen = new ActionCommand(() => CurrentScreen.Value = new GameViewModel(IGame.CreateRandom(boardSize, 0.2, true), this.CurrentScreen));
+            SwitchToSettingsScreen = new ActionCommand(() => CurrentScreen.Value = new SettingsScreenViewModel(this.CurrentScreen));
         }
 
         public ICommand SwitchToSettingsScreen { get; }
