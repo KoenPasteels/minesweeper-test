@@ -19,30 +19,43 @@
                                           Flagged="Collapsed"/>
     </UserControl.Resources>
     <Grid>
-        <ItemsControl ItemsSource="{Binding Board.Value.Rows}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <ItemsControl ItemsSource="{Binding Squares}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Button Height="32" Width="32" Command="{Binding Uncover}">
-                                    <Button.Content>
-                                        <Grid>
-                                            <Ellipse Height="20" Width="20" Fill="{Binding Square.Value.Status, Converter={StaticResource squareStatusToEllipseFill}}"/>
-                                            <TextBlock Text="{Binding Square.Value.NeighboringMineCount}" Visibility="{Binding Square.Value.Status, Converter={StaticResource squareStatusVisibility}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                        </Grid>
-                                    </Button.Content>
-                                </Button>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>  
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32px"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Viewbox Grid.Row="1" Grid.Column="1">
+            <ItemsControl ItemsSource="{Binding Board.Value.Rows}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <ItemsControl ItemsSource="{Binding Squares}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Height="32" Width="32" Command="{Binding Uncover}">
+                                        <Button.Content>
+                                            <Grid>
+                                                <Ellipse Height="20" Width="20" Fill="{Binding Square.Value.Status, Converter={StaticResource squareStatusToEllipseFill}}"/>
+                                                <TextBlock Text="{Binding Square.Value.NeighboringMineCount}" Visibility="{Binding Square.Value.Status, Converter={StaticResource squareStatusVisibility}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            </Grid>
+                                        </Button.Content>
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Viewbox>
+        <Button Grid.Row="0" Grid.Column="2" Content="Settings" Command="{Binding SwitchToSettingsScreen}"/>
+        <Button Grid.Row="0" Grid.Column="1" Content="Start new game"/>
     </Grid>
 </UserControl>
