@@ -40,7 +40,11 @@
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Button Height="32" Width="32" Command="{Binding Uncover}">
+                                    <Button Height="32" Width="32">
+                                        <Button.InputBindings>
+                                            <MouseBinding Gesture="LeftClick" Command="{Binding Uncover}"/>
+                                            <MouseBinding Gesture="RightClick" Command="{Binding Flag}"/>
+                                        </Button.InputBindings>
                                         <Button.Content>
                                             <Grid>
                                                 <Ellipse Height="20" Width="20" Fill="{Binding Square.Value.Status, Converter={StaticResource squareStatusToEllipseFill}}"/>
