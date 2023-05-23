@@ -17,6 +17,12 @@
                                           Flagged="Collapsed"/>
         <converters:SquareStatusConverter x:Key="squareStatusToBorderColor"
                                           Mine="Red"/>
+        <converters:SquareMineCountConverter x:Key="squareMineCountConverter"
+                                             Zero=""
+                                             One="1"
+                                             Two="2"
+                                             Three="3"
+                                             Four="4"/>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -76,7 +82,7 @@
                                                 </Image>
                                                 <!--TODO converter for 0 value of minecount-->
                                                 <Border BorderBrush="{Binding Square.Value.Status, Converter={StaticResource squareStatusToBorderColor}}" BorderThickness="3">
-                                                    <TextBlock Text="{Binding Square.Value.NeighboringMineCount}" Visibility="{Binding Square.Value.Status, Converter={StaticResource squareStatusVisibility}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                    <TextBlock Text="{Binding Square.Value.NeighboringMineCount, Converter={StaticResource squareMineCountConverter}}" Visibility="{Binding Square.Value.Status, Converter={StaticResource squareStatusVisibility}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                                 </Border>
                                             </Grid>
                                         </Button.Content>
