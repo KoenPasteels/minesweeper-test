@@ -23,6 +23,10 @@
                                              Two="2"
                                              Three="3"
                                              Four="4"/>
+        <!--<converters:AfterGameTextConverter x:Key="gameStatusToText"
+                                           InProgress=""
+                                           Won="You won!"
+                                           Lost="You lost!"/>-->
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -80,7 +84,6 @@
                                                         </Style>
                                                     </Image.Style>
                                                 </Image>
-                                                <!--TODO converter for 0 value of minecount-->
                                                 <Border BorderBrush="{Binding Square.Value.Status, Converter={StaticResource squareStatusToBorderColor}}" BorderThickness="3">
                                                     <TextBlock Text="{Binding Square.Value.NeighboringMineCount, Converter={StaticResource squareMineCountConverter}}" Visibility="{Binding Square.Value.Status, Converter={StaticResource squareStatusVisibility}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                                 </Border>
