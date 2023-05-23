@@ -29,7 +29,7 @@ namespace View.Converters
                 case 4:
                     return Four;
                 default:
-                    throw new InvalidCastException();
+                    return Zero;
             }
         }
 
