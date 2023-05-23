@@ -7,7 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Screens\Images\bomb.png" />
+    <None Remove="Screens\Images\flag.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ViewModel\ViewModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Screens\Images\bomb.png" />
+    <Resource Include="Screens\Images\flag.png" />
   </ItemGroup>
 
 </Project>
