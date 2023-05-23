@@ -60,6 +60,6 @@
             </ItemsControl>
         </Viewbox>
         <Button Grid.Row="0" Grid.Column="2" Content="Settings" Command="{Binding SwitchToSettingsScreen}"/>
-        <Button Grid.Row="0" Grid.Column="1" Content="Start new game"/>
+        <Button Grid.Row="0" Grid.Column="1" Content="Start new game" Command="{Binding StartNewGame}"/>
     </Grid>
 </UserControl>
