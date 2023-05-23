@@ -45,15 +45,35 @@
                                         </Button.InputBindings>
                                         <Button.Content>
                                             <Grid>
-                                                <!--<Ellipse Height="20" Width="20" Fill="{Binding Square.Value.Status, Converter={StaticResource squareStatusToEllipseFill}}"/>-->
                                                 <Image Stretch="Fill">
                                                     <Image.Style>
                                                         <Style TargetType="Image">
+                                                            <Style.Triggers>
+                                                                <MultiDataTrigger>
+                                                                    <MultiDataTrigger.Conditions>
+                                                                        <Condition Binding="{Binding Game.Value.Status}" Value="Lost"/>
+                                                                        <Condition Binding="{Binding ContainsMine.Value}" Value="true"/>
+                                                                    </MultiDataTrigger.Conditions>
+                                                                    <MultiDataTrigger.Setters>
+                                                                        <Setter Property="Source" Value="Images/bomb.png"/>
+                                                                    </MultiDataTrigger.Setters>
+                                                                </MultiDataTrigger>
+                                                                <MultiDataTrigger>
+                                                                    <MultiDataTrigger.Conditions>
+                                                                        <Condition Binding="{Binding Game.Value.Status}" Value="Won"/>
+                                                                        <Condition Binding="{Binding ContainsMine.Value}" Value="true"/>
+                                                                    </MultiDataTrigger.Conditions>
+                                                                    <MultiDataTrigger.Setters>
+                                                                        <Setter Property="Source" Value="Images/bomb.png"/>
+                                                                    </MultiDataTrigger.Setters>
+                                                                </MultiDataTrigger>
+                                                            </Style.Triggers>
                                                             <Setter Property="Source" Value="{Binding Path=Square.Value.Status, Converter={StaticResource squareStatusToEllipseFill}}"/>
                                                         </Style>
                                                     </Image.Style>
                                                 </Image>
-                                                    <TextBlock Text="{Binding Square.Value.NeighboringMineCount}" Visibility="{Binding Square.Value.Status, Converter={StaticResource squareStatusVisibility}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                <!--TODO converter for 0 value of minecount-->
+                                                <TextBlock Text="{Binding Square.Value.NeighboringMineCount}" Visibility="{Binding Square.Value.Status, Converter={StaticResource squareStatusVisibility}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                             </Grid>
                                         </Button.Content>
                                     </Button>
