@@ -40,12 +40,18 @@
             <ColumnDefinition Width="400"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,5">
+                <GradientStop Color="SteelBlue" Offset="0"/>
+                <GradientStop Color="DarkGreen" Offset="0.25"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Viewbox Grid.Row="0" Grid.Column="0" Stretch="Uniform">
-            <TextBlock Text="{Binding TimerInSeconds, StringFormat={}{0} Seconden}" Background="White"/>
+            <TextBlock Text="{Binding TimerInSeconds, StringFormat={}{0} seconden}" Background="SteelBlue" FontSize="18"/>
         </Viewbox>
         
-        <Button Grid.Row="0" Grid.Column="1" Content="Start new game" Command="{Binding StartNewGame}"/>
-        <Button Grid.Row="0" Grid.Column="2" Content="Settings" Command="{Binding SwitchToSettingsScreen}"/>
+        <Button Grid.Row="0" Grid.Column="1" Content="Start new game" Command="{Binding StartNewGame}" FontSize="18" Foreground="LightGray" Background="Black"/>
+        <Button Grid.Row="0" Grid.Column="2" Content="Settings" Command="{Binding SwitchToSettingsScreen}" FontSize="18" Foreground="LightGray" Background="Black"/>
 
         <Viewbox Grid.Row="1" Grid.Column="0" Stretch="Uniform">
             <TextBlock Text="{Binding GameStatus.Value, Converter={StaticResource gameStatusToText}}"/>
