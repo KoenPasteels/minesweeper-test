@@ -40,6 +40,9 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Viewbox Grid.Row="0" Grid.Column="0" Stretch="Uniform">
+            <TextBlock Text="{Binding TimerInSeconds, StringFormat={}{0} Seconden}" Background="White"/>
+        </Viewbox>
         <Viewbox Grid.Row="1" Grid.Column="1">
             <ItemsControl ItemsSource="{Binding Board.Value.Rows}">
                 <ItemsControl.ItemTemplate>
