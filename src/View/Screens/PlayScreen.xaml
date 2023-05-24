@@ -25,10 +25,10 @@
                                              Two="2"
                                              Three="3"
                                              Four="4"/>
-        <!--<converters:AfterGameTextConverter x:Key="gameStatusToText"
+        <converters:AfterGameTextConverter x:Key="gameStatusToText"
                                            InProgress=""
                                            Won="You won!"
-                                           Lost="You lost!"/>-->
+                                           Lost="You lost!"/>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -42,6 +42,13 @@
         </Grid.ColumnDefinitions>
         <Viewbox Grid.Row="0" Grid.Column="0" Stretch="Uniform">
             <TextBlock Text="{Binding TimerInSeconds, StringFormat={}{0} Seconden}" Background="White"/>
+        </Viewbox>
+        
+        <Button Grid.Row="0" Grid.Column="1" Content="Start new game" Command="{Binding StartNewGame}"/>
+        <Button Grid.Row="0" Grid.Column="2" Content="Settings" Command="{Binding SwitchToSettingsScreen}"/>
+
+        <Viewbox Grid.Row="1" Grid.Column="0" Stretch="Uniform">
+            <TextBlock Text="{Binding GameStatus.Value, Converter={StaticResource gameStatusToText}}"/>
         </Viewbox>
         <Viewbox Grid.Row="1" Grid.Column="1">
             <ItemsControl ItemsSource="{Binding Board.Value.Rows}">
@@ -103,7 +110,5 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </Viewbox>
-        <Button Grid.Row="0" Grid.Column="2" Content="Settings" Command="{Binding SwitchToSettingsScreen}"/>
-        <Button Grid.Row="0" Grid.Column="1" Content="Start new game" Command="{Binding StartNewGame}"/>
     </Grid>
 </UserControl>

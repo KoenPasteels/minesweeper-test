@@ -40,6 +40,13 @@ namespace ViewModel
         public ICommand SwitchToSettingsScreen { get; }
         public ICommand StartNewGame { get; }
         public double TimerInSeconds { get; set; }
+        public ICell<GameStatus> GameStatus
+        {
+            get
+            {
+                return game.Derive(g => g.Status);
+            }
+        }
 
         private void StartTimer()
         {

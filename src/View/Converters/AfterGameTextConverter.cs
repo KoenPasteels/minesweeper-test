@@ -9,9 +9,9 @@ namespace View.Converters
 {
     class AfterGameTextConverter : IValueConverter
     {
-        public object InProgress { get; }
-        public object Won { get; }
-        public object Lost { get; }
+        public object InProgress { get; set; }
+        public object Won { get; set; }
+        public object Lost { get; set; }
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
