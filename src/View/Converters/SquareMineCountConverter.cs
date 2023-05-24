@@ -13,6 +13,10 @@ namespace View.Converters
         public object Two { get; set; }
         public object Three { get; set; }
         public object Four { get; set; }
+        public object Five { get; set; }
+        public object Six { get; set; }
+        public object Seven { get; set; }
+        public object Eight { get; set; }
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var squareMineCount = (int)value;
@@ -28,6 +32,14 @@ namespace View.Converters
                     return Three;
                 case 4:
                     return Four;
+                case 5:
+                    return Five;
+                case 6:
+                    return Six;
+                case 7:
+                    return Seven;
+                case 8:
+                    return Eight;
                 default:
                     return Zero;
             }
