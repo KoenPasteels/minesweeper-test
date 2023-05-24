@@ -11,7 +11,7 @@ namespace ViewModel
     {
         public PlayScreenViewModel()
         {
-            IGame game = IGame.CreateRandom(5, 0.2, true);
+            IGame game = IGame.CreateRandom(10, 0.2, true);
 
             // Create empty cell
             CurrentScreen = Cell.Create<ScreenViewModel>(null);

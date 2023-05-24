@@ -34,7 +34,7 @@ namespace ViewModel
             //StartNewGame = new ActionCommand(() => CurrentScreen.Value = new GameViewModel(IGame.CreateRandom(Board.Value.Height, 0.2, Flooding), this.CurrentScreen));
 
             this.StartTimer();
-            if(game.Value.Status != GameStatus.InProgress) { timer.Stop(); }
+            //if(game.Value.Status != GameStatus.InProgress) { timer.Stop(); }
         }
 
         public ICommand SwitchToSettingsScreen { get; }
