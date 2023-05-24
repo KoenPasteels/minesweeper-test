@@ -17,6 +17,8 @@
                                           Flagged="Collapsed"/>
         <converters:SquareStatusConverter x:Key="squareStatusToBorderColor"
                                           Mine="Red"/>
+        <converters:SquareStatusConverter x:Key="squareBackgroundConverter"
+                                          Uncovered="White"/>
         <converters:SquareMineCountConverter x:Key="squareMineCountConverter"
                                              Zero=""
                                              One="1"
@@ -50,7 +52,7 @@
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Button Height="32" Width="32">
+                                    <Button Height="32" Width="32" Background="Black">
                                         <Button.InputBindings>
                                             <MouseBinding Gesture="LeftClick" Command="{Binding Uncover}"/>
                                             <MouseBinding Gesture="RightClick" Command="{Binding Flag}"/>
@@ -84,6 +86,7 @@
                                                         </Style>
                                                     </Image.Style>
                                                 </Image>
+                                                <Rectangle Width="32" Height="32" Fill="{Binding Square.Value.Status, Converter={StaticResource squareBackgroundConverter}}"/>
                                                 <Border BorderBrush="{Binding Square.Value.Status, Converter={StaticResource squareStatusToBorderColor}}" BorderThickness="3">
                                                     <TextBlock Text="{Binding Square.Value.NeighboringMineCount, Converter={StaticResource squareMineCountConverter}}" Visibility="{Binding Square.Value.Status, Converter={StaticResource squareStatusVisibility}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                                 </Border>
